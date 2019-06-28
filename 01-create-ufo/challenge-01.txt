@@ -1,0 +1,101 @@
+
+Challenge #1 is all about creating a ufo that flies around in the sky.
+
+
+Goal #1: Draw a UFO in the Sky.
+
+    Our first UFO is going to be a simple rectangle.  That's really boring but
+    for now we just want to get the mechanics working.  Later we can replace that 
+    with an ellipse or an image.    
+
+    Step 1 - Create a new file called ufo.js in the objects folder.
+        It will have a type of rectangle. 
+        Start it out in the upper left of the sky.  
+        Give it a width and height.  
+        Give it a pretty color.
+
+    Step 3 - Make changes to main.js to draw it.
+        Add the imports.
+        Creat a variable called ufo.
+        Create the draw function.
+        And don't forget to call the draw function.
+
+    Display your page and make sure you have a boring UFO that sits up in the
+    sky and does nothing.
+
+
+Goal #2: Make the UFO Move.
+
+    Step 1 - Update our ufo and give it two new attributes:  
+        - speedX will tell us how fast it moves from left to right.  Start that out at 2.  
+        - speedY will tell us how fast is moves up and down. Start that out at 2 also.
+
+    Step 2 - Add a new function to ufo.js to update the ufo.
+
+        export function updateUFO(ufo) {
+            ??????;
+        }  
+
+    Step 3 - Import that function on main.js
+
+    Step 4 - Call that new function from our draw function.
+        - Update first.  Then draw.  
+
+    Display your page.  Watch the UFO fly away!!!
+
+Goal #3: Make the UFO bounce off the right side of the screen.
+
+    Step 1 - Update our ufo and give it four new attributes:
+        - maxLeft, maxRight, maxUp and maxDown.  
+        - Hints: Having the canvas will help. 
+
+    Step 2 - If the UFO hits the sides, have it reverse back the other way.
+
+        if (ufo.x + ufo.width > ufo.maxRight) ufo.speedX = ufo.speedX * -1;
+
+        Display your page. 
+
+Goal #4: Make the UFO bounce off the left side.
+
+    Try to code that up and display your page.
+
+Goal #5: Now make it bounce off the top and bottom.
+
+    Same idea.  Try that out and see if it works.
+
+Goal #6: Still too boring.  Aliens aren't that predictable.
+
+    Let's make the UFO fly around randomly and change directions and speed 
+    every 2-5 seconds.  In javascript that's every 2000-5000 milliseconds.
+
+    Step 1 - Update your UFO and give it a new attribute called timer.
+        timer: Date.now() + 5000
+        (that's Now + 5 seconds)
+
+    Step 2 - Create a new function call randomize.
+        - It will take ufo as input.
+        - And for now it won't do anything.  
+
+        function randomize(ufo) {
+
+        }
+
+    Step 3 - Now in our update function we'll call randomize every time the timer is done.
+
+        if (Date.now() > ufo.timer) randomize(ufo);
+
+    Step 4 - Now let's randomize the ufo. All we need to do is change the speeds and 
+        set a new timer.  Just 3 lines of code.  
+
+            // Speeds will be between -4.5 and 4.5
+            ufo.speedX = (Math.floor(Math.random()* 90) - 45)/10;
+            ufo.speedY = (Math.floor(Math.random()* 90) - 45)/10;
+
+            // Timer will be between 2 and 3 seconds in the future.  
+            ufo.timer = Date.now() + Math.floor(Math.random() * 1000) + 2000;
+
+Goal #7:  Enjoy
+
+    Nice!  It's still a boring rectangle, but that's how real UFOs fly around right?
+           
+

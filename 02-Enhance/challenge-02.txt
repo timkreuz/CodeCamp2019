@@ -1,0 +1,79 @@
+
+Challenge #2 - 
+
+    There's a lot more to do yet.  But we need to slow things down
+    and improve our program.  This will set things up for the all the other other
+    things we need to do.
+
+    The first problem is we're going to be drawing a lot more objects - like 
+    abductioin beams, and defense systems and missiles and shields and alien invaders.
+    And that's going be a lot of ctx begin, draw, fill, etc... There's got to be a 
+    better way.  
+
+    The second problem is all we can draw right night is boring rectangles.  What if 
+    we want to draw an ellipse, or a more complex object or display a cool image.
+    So we'll fix that too.
+
+    Those are the main things.  And along the way, we'll learn how to do arrays, loops,
+    and ifs with elses and ifs with ors and other fun programming things.
+
+
+Goal #1 - Improve the ufo change direction code.
+
+    Whether you hit the left of right side of the wall, you always change directions
+    by multiplying the speed by -1.  Let's add an or statement to that code.  || 
+    means "or" in javascript.  
+
+        if ((ufo.x + ufo.width > ufo.maxRight) || (ufo.x < ufo.maxLeft))
+        ufo.speedX = ufo.speedX * -1;
+
+    Now do the same for the up and down direction changes.
+
+    Make sure everything is still working.
+
+Goal #2 - Consolidate those draw functions in main.js
+
+    Create a drawObject function.
+
+    function drawObject(object) {
+        //guess what goes here!  
+    }
+
+    And guess what you can delete now.  And what needs to change.
+
+Goal #3 - Too many calls to drawObject
+
+    Things are a lot better now.  What if we have a 50 objects to draw? 
+    It's going to get tiring having a long list of drawObject statemments.
+    Let's fix that.
+
+    Step #1 - Let's create a collection of drawables.
+        
+        Do this near the top after we create these things.
+        var drawables = [earth, sky, ufo];
+
+    Step #2 - Create a new function called drawAll
+
+        function drawAll(drawables) {
+        
+        }
+
+    Step #3 - Inside of drawAll we can write a loop.
+
+        There's other ways to do this, but we'll learn this first.
+
+        for (i = 0; i < drawables.length; i++) {
+            drawObject(drawables[i]);
+        }
+
+    Step #4 - Remove the drawObjects in the draw function.
+        Instead drawAll.
+
+        If you want you can put all the drawing code in drawAll.  It's 
+        up to you.  And maybe renamme draw to updateAndDraw.
+
+
+Goal #4 - Set things up to draw more than rectangles.
+
+    
+
